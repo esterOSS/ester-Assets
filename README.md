@@ -19,7 +19,3 @@ Cuz people keep forgetting :skull::
 > - "Keyboard Frustration"
 > - "Auto-Correct Embarrassment."
 > - "Ctrl+Alt+Del Syndrome" – a condition where you start believing that restarting yourself will solve all of life's problems.
-
-> Me: So did you understand how this works?\
-> Some hacker: NO!\
-> Me: Fuck off then :trollface:
