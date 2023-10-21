@@ -5,7 +5,7 @@
 Well, technically yes, but actually no!\
 Cuz people keep forgetting :skull::
 
- - This is a Ubuntu distro
+ - This is a Ubuntu<sup>could be arch</sup> distro
  - It uses Gnome<sup>visually appealing edition</sup>
 	 - Has a custom made icon pack
 	 - Has a custom boot animation
