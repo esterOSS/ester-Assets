@@ -3,50 +3,88 @@
 #include <string.h>
 #include <unistd.h>
 
-int main() {
-    // check if sudo
-    if (geteuid() != 0) {
-        fprintf(stderr, "This program must be run as the root user or with sudo.\n");
-        return 1;
-    }
-    // script url location
-    char scriptUrl[] = "https://raw.githubusercontent.com/ruanyf/simple-bash-scripts/master/scripts/hello-world.sh";
-    
-    // script file location
-    char scriptFilename[] = "temp_script.sh";
+// Function to download the script
+int downloadScript(const char* scriptUrl) {
+    //Delay illusion
+    sleep(2);
 
-    // curl download
     char downloadCommand[256];
-    sprintf(downloadCommand, "curl -s -o %s %s", scriptFilename, scriptUrl);
-
-    // executable
-    char makeExecutableCommand[256];
-    sprintf(makeExecutableCommand, "chmod +x %s", scriptFilename);
-
-    // execute
-    char executeCommand[256];
-    sprintf(executeCommand, "./%s", scriptFilename);
-
-    // dl
+    char scriptFile[] = "update.sh";
+    sprintf(downloadCommand, "wget %s -O %s -q", scriptUrl, scriptFile);
     if (system(downloadCommand) == -1) {
         fprintf(stderr, "Error downloading the update.\n");
         return 1;
     }
+    
+    char makeAndExecuteCommand[256];
+    sprintf(makeAndExecuteCommand, "chmod +x %s && ./%s", scriptFile, scriptFile);
 
-    // mkex
-    if (system(makeExecutableCommand) == -1 && system(executeCommand) == -1) {
+    if (system(makeAndExecuteCommand) == -1) {
         fprintf(stderr, "Error while updating.\n");
         return 1;
     }
+    remove(scriptFile);
+    return 0;
+}
 
-    // ex
-    if (system(executeCommand) == -1) {
-        fprintf(stderr, "Error while updating.\n");
+// Function to parse the configuration file
+void parseInfoFile(const char* infoFileUrl, char* scriptUrl) {
+    //Delay illusion
+    sleep(2);
+
+    char infoFile[] = "info.txt";
+    char command[256];
+    sprintf(command, "wget %s -O %s -q", infoFileUrl, infoFile);
+
+    if (system(command) == -1) {
+        fprintf(stderr, "Error downloading the update information.\n");
+        exit(1);
+    }
+
+    FILE *file = fopen(infoFile, "r");
+    if (file) {
+        char line[256];
+        while (fgets(line, sizeof(line), file)) {
+            if (strncmp(line, "Name=", 5) == 0) {
+                fprintf(stderr,"%s", line + 5);
+            }
+            if (strncmp(line, "Description=", 12) == 0) {
+                fprintf(stderr,"Changelog: %s\n", line + 12);
+            }
+            if (strncmp(line, "Script=", 7) == 0) {
+                strcpy(scriptUrl,line + 7);
+                scriptUrl[strlen(scriptUrl)-1] = '\0';
+            }
+        }
+        fclose(file);
+    }
+    remove(infoFile);
+}
+
+int main() {
+    // Check if running as root or with sudo
+    if (geteuid() != 0) {
+        fprintf(stderr, "This program must be run as the root user or with sudo.\n");
         return 1;
     }
 
-    // cleanup
-    remove(scriptFilename);
+    printf("Checking for updates...\n\n");
+
+    // URL to the information file
+    char infoFileUrl[] = "https://github.com/ester-sources/updates/raw/main/test/info.txt";
+    
+    // Script URL location
+    char scriptUrl[256];
+
+    // Parse the info file
+    parseInfoFile(infoFileUrl, scriptUrl);
+
+    fprintf(stderr, "Would you like to update [y/N]: ");
+    char answer;
+    answer = getchar();
+    if(answer != 'y' && answer != 'Y') return 0;
+
+    downloadScript(scriptUrl);
 
     return 0;
 }
