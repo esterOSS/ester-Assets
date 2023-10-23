@@ -2,7 +2,7 @@
 Name=esterOS Updater
 Exec=esteros-updater
 Icon=co.uk.esteros.Updater
-Terminal=false
+Terminal=true
 Type=Application
 Categories=GTK;
 StartupNotify=true
