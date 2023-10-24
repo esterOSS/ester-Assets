@@ -59,10 +59,12 @@ esteros_updater_window_class_init(EsterosUpdaterWindowClass * klass) {
 
 static void esteros_updater_window__install(GtkWidget * widget, gpointer data) {
   EsterosUpdaterWindow *self = ESTEROS_UPDATER_WINDOW(data);
+  gtk_widget_set_sensitive(widget, false);
   gtk_label_set_text(self -> statustext, "Updating in progress...");
   gtk_label_set_text(self -> osname, "");
   gtk_label_set_text(self -> ossize, "");
   gtk_label_set_text(self -> osdescription, "");
+  gtk_image_clear(GTK_IMAGE(self->osicon));
   // Download command
   char * wgetInfoCommand = "wget -O info.txt https://raw.githubusercontent.com/ester-sources/updates/main/test/info.txt";
   int status = system(wgetInfoCommand);
@@ -103,6 +105,7 @@ static void esteros_updater_window__install(GtkWidget * widget, gpointer data) {
     }
 
     g_object_unref(infoFile);
+    //gtk_widget_set_sensitive (widget, true);
   } else {
     g_print("Failed to download info.txt: wget exited with non-zero status\n");
   }
@@ -141,15 +144,15 @@ esteros_updater_window_init(EsterosUpdaterWindow * self) {
         // Update the UI elements with the parsed values
         if (name) {
           gtk_label_set_text(self -> osname, name);
-          gtk_label_set_text(self -> ossize, "undefined GB");
+          gtk_label_set_text(self -> ossize, "EBXXXXXXXX");
         }
 
         if (description) {
           gtk_label_set_text(self -> osdescription, description);
         }
 
-        /*if (iconUrl) {
-            char *wgetImageCommand = "wget -O osimage.svg ";
+        if (iconUrl) {
+            char wgetImageCommand[256] = "wget -O osimage.svg ";
             strcat(wgetImageCommand, iconUrl);
             int imgStatus = system(wgetImageCommand);
 
@@ -161,7 +164,7 @@ esteros_updater_window_init(EsterosUpdaterWindow * self) {
             } else {
               g_print("Failed to download image: wget exited with non-zero status\n");
             }
-        }*/
+        }
       } else {
         g_print("Failed to parse info.txt: %s\n", error -> message);
       }

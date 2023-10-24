@@ -4,11 +4,16 @@ using Adw 1;
 template $EsterosUpdaterWindow : Adw.ApplicationWindow {
   default-width: 600;
   default-height: 300;
+  title: "esterOS Updater";
 
   Box {
     orientation: vertical;
 
     HeaderBar header_bar {
+      Button logicon {
+        icon-name: "media-view-subtitles-symbolic";
+      }
+
       [end]
       MenuButton {
         icon-name: "open-menu-symbolic";
@@ -21,8 +26,8 @@ template $EsterosUpdaterWindow : Adw.ApplicationWindow {
       spacing: 12;
       margin-top: 30;
 
-      Label {
-        label: "An update is available!";
+      Label statustext {
+        label: "Checking for updates...";
 
         styles [
           "title-1",
@@ -35,7 +40,7 @@ template $EsterosUpdaterWindow : Adw.ApplicationWindow {
         margin-end: 15;
         margin-start: 30;
 
-        Image icon1 {
+        Image osicon {
           pixel-size: 64;
         }
 
@@ -44,7 +49,7 @@ template $EsterosUpdaterWindow : Adw.ApplicationWindow {
           margin-start: 15;
 
           Label osname {
-            label: "esterOS 25.0 Delta 6";
+            label: "";
 
             styles [
               "title-2",
@@ -52,7 +57,7 @@ template $EsterosUpdaterWindow : Adw.ApplicationWindow {
           }
 
           Label ossize {
-            label: "3.24 GB";
+            label: "";
 
             styles [
               "title-4",
@@ -65,8 +70,8 @@ template $EsterosUpdaterWindow : Adw.ApplicationWindow {
         orientation: horizontal;
         margin-start: 30;
 
-        Label changelogs {
-          label: "This update features bugfixes and new changes!";
+        Label osdescription {
+          label: "";
         }
       }
 
@@ -76,7 +81,8 @@ template $EsterosUpdaterWindow : Adw.ApplicationWindow {
 
       Button mainbutton {
         name: "main_action";
-        label: _("Install");
+        label: _("Update");
+        sensitive: true;
 
         styles [
           "suggested-action",

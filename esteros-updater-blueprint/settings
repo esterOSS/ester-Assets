@@ -1,6 +1,6 @@
 [re/sonny/Workbench]
 show-console=true
 edited=true
-user-interface-language='blueprint'
+user-interface-language='xml'
 preview-align=1
 show-code=true
