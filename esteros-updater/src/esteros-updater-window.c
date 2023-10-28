@@ -66,7 +66,7 @@ static void esteros_updater_window__install(GtkWidget * widget, gpointer data) {
   gtk_label_set_text(self -> osdescription, "");
   gtk_image_clear(GTK_IMAGE(self->osicon));
   // Download command
-  char * wgetInfoCommand = "wget -O info.txt https://raw.githubusercontent.com/ester-sources/updates/main/test/info.txt";
+  char * wgetInfoCommand = "wget -O info.txt https://raw.githubusercontent.com/ester-sources/updates/main/latest/info.txt";
   int status = system(wgetInfoCommand);
 
   if (status == 0) {
@@ -121,7 +121,7 @@ esteros_updater_window_init(EsterosUpdaterWindow * self) {
   // "An update is available"
   gtk_label_set_text(self -> statustext, "An update is available!");
   // Download command
-  char * wgetInfoCommand = "wget -O info.txt https://raw.githubusercontent.com/ester-sources/updates/main/test/info.txt";
+  char * wgetInfoCommand = "wget -O info.txt https://raw.githubusercontent.com/ester-sources/updates/main/latest/info.txt";
 
   int status = system(wgetInfoCommand);
 
@@ -140,11 +140,14 @@ esteros_updater_window_init(EsterosUpdaterWindow * self) {
         const char * name = g_key_file_get_string(infoKeyFile, "Info", "Name", NULL);
         const char * description = g_key_file_get_string(infoKeyFile, "Info", "Description", NULL);
         const char * iconUrl = g_key_file_get_string(infoKeyFile, "Info", "Icon", NULL);
+        const char * buildstring = g_key_file_get_string(infoKeyFile, "Info", "Build", NULL);
 
         // Update the UI elements with the parsed values
         if (name) {
           gtk_label_set_text(self -> osname, name);
-          gtk_label_set_text(self -> ossize, "EBXXXXXXXX");
+        }
+        if(buildstring){
+          gtk_label_set_text(self -> ossize, buildstring);
         }
 
         if (description) {
