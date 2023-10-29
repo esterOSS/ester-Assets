@@ -9,13 +9,13 @@ icon-theme = "estericons"
 
 # Default Desktop Theme
 [org.gnome.desktop.interface:ubuntu]
-gtk-theme = "Adwaita-dark"
+gtk-theme = "adw-gtk3-dark"
 
 [org.gnome.desktop.interface:ubuntu]
 monospace-font-name="Monospace 13"
 
 [org.gnome.desktop.interface:GNOME-Greeter]
-gtk-theme = "Adwaita"
+gtk-theme = "adw-gtk3-dark"
 icon-theme = "estericons"
 cursor-theme = "DMZ-White"
 font-name = "Qualcomm Next Regular 11"
