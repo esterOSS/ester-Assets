@@ -81,12 +81,12 @@ esteros_updater_application_about_action (GSimpleAction *action,
 	window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
 	adw_show_about_window (window,
-	                       "application-name", "esteros-updater",
+	                       "application-name", "esterOS Updater",
 	                       "application-icon", "co.uk.esteros.Updater",
 	                       "developer-name", "JukFiuu",
-	                       "version", "0.1.0",
+	                       "version", "1.0.0",
 	                       "developers", developers,
-	                       "copyright", "© 2023 JukFiuu",
+	                       "copyright", "© 2023 esterOS",
 	                       NULL);
 }
 
