@@ -20,3 +20,4 @@ Cuz people keep forgetting :skull::
 > - "Keyboard Frustration"
 > - "Auto-Correct Embarrassment."
 > - "Ctrl+Alt+Del Syndrome" – a condition where you start believing that restarting yourself will solve all of life's problems.
+> - "i use arch btw"
