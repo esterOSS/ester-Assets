@@ -1,6 +1,6 @@
 
 # esterOS 25 Assets
-> its just literally fake. - **Literally** ***everyone***
+> its just fake. - **Literally** ***everyone***
 
 Well, technically yes, but actually no!\
 Cuz people keep forgetting :skull::
