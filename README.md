@@ -12,7 +12,7 @@ Cuz people keep forgetting :skull::
 	 - Has a custom font
 	 - Has custom wallpapers
 	 - ***WILL*** have custom apps
- - It is indeed real. (Atleast on the PC version  ¯\\__(ツ)__/¯)
+ - It is indeed real. (Atleast on the PC version  `¯\_(ツ)_/¯`)
 
 > [!WARNING]
 > Side Effects of using this OS may include:
