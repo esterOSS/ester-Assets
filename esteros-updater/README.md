@@ -1,3 +1,3 @@
 # esteros-updater
 
-A description of this project.
+A GUI updater for esterOS that does so far nothing except displaying a Hello World test updater script.
