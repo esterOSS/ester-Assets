@@ -7,6 +7,7 @@ appstream-util (install it by typing pacman -S extra/appstream-glib)
 pkg-config (install it by typing pacman -S pkg-config)
 cmake (install it by typing pacman -S cmake)
 gtk4 (install it by typing pacman -S gtk4)
+meson (install it by typing pacman -S meson)
 
 1. Download git (pacman -S git)
 2. Clone repo (git clone https://github.com/ester-sources/assets)
