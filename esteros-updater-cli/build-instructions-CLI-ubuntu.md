@@ -1,4 +1,4 @@
-# Building instructions in Ubuntu 20.04 LTS - 23.10 for the esterOS updater:
+# Building instructions in Ubuntu 23.10 for the esterOS updater:
 (internet access is required to download the neccesary programs)
 
 Prerequisites for building the esterOS CLI updater:
