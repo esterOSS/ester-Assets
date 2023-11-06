@@ -71,7 +71,7 @@ int main() {
     printf("Checking for updates...\n\n");
 
     // URL to the information file
-    char infoFileUrl[] = "https://github.com/ester-sources/updates/raw/main/test/info.txt";
+    char infoFileUrl[] = "https://github.com/esterOSS/updates/latest/info.txt";
     
     // Script URL location
     char scriptUrl[256];
