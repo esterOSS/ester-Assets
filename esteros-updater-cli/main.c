@@ -48,6 +48,9 @@ void parseInfoFile(const char* infoFileUrl, char* scriptUrl) {
             if (strncmp(line, "Name=", 5) == 0) {
                 fprintf(stderr,"%s", line + 5);
             }
+            if (strncmp(line, "Build=", 6) == 0) {
+                fprintf(stderr,"Build: %s", line + 6);
+            }
             if (strncmp(line, "Description=", 12) == 0) {
                 fprintf(stderr,"Changelog: %s\n", line + 12);
             }
@@ -71,7 +74,7 @@ int main() {
     printf("Checking for updates...\n\n");
 
     // URL to the information file
-    char infoFileUrl[] = "https://github.com/esterOSS/updates/latest/info.txt";
+    char infoFileUrl[] = "https://github.com/esterOSS/updates/main/latest/info.txt";
     
     // Script URL location
     char scriptUrl[256];
