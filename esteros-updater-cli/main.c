@@ -48,8 +48,14 @@ void parseInfoFile(const char* infoFileUrl, char* scriptUrl) {
             if (strncmp(line, "Name=", 5) == 0) {
                 fprintf(stderr,"%s", line + 5);
             }
-            if (strncmp(line, "Build=", 6) == 0) {
-                fprintf(stderr,"Build: %s", line + 6);
+            if (strncmp(line, "Year=", 5) == 0) {
+                fprintf(stderr,"Year: %s", line + 5);
+            }
+            if (strncmp(line, "Month=", 6) == 0) {
+                fprintf(stderr,"Month: %s", line + 6);
+            }
+            if (strncmp(line, "Day=", 4) == 0) {
+                fprintf(stderr,"Day: %s", line + 4);
             }
             if (strncmp(line, "Description=", 12) == 0) {
                 fprintf(stderr,"Changelog: %s\n", line + 12);
