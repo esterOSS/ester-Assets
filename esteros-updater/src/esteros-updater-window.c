@@ -140,14 +140,36 @@ esteros_updater_window_init(EsterosUpdaterWindow * self) {
         const char * name = g_key_file_get_string(infoKeyFile, "Info", "Name", NULL);
         const char * description = g_key_file_get_string(infoKeyFile, "Info", "Description", NULL);
         const char * iconUrl = g_key_file_get_string(infoKeyFile, "Info", "Icon", NULL);
-        const char * buildstring = g_key_file_get_string(infoKeyFile, "Info", "Build", NULL);
+        const char * year = g_key_file_get_string(infoKeyFile, "Info", "Year", NULL);
+        const char * month = g_key_file_get_string(infoKeyFile, "Info", "Month", NULL);
+        const char * day = g_key_file_get_string(infoKeyFile, "Info", "Day", NULL);
+        char bdate[256] = "\0";
+        int pleasedontmakemekysignorethispls = 0;
 
+        for (pleasedontmakemekysignorethispls = 0; pleasedontmakemekysignorethispls < 4; pleasedontmakemekysignorethispls++) {
+            bdate[i] = year[pleasedontmakemekysignorethispls];
+        }
+        bdate[pleasedontmakemekysignorethispls] = '.';
+        pleasedontmakemekysignorethispls++;
+
+        for (int j = 0; j < 2; j++) {
+            bdate[pleasedontmakemekysignorethispls] = month[j];
+            pleasedontmakemekysignorethispls++;
+        }
+        bdate[pleasedontmakemekysignorethispls] = '.';
+        pleasedontmakemekysignorethispls++;
+
+        for (int j = 0; j < 2; j++) {
+            bdate[pleasedontmakemekysignorethispls] = day[j];
+            pleasedontmakemekysignorethispls++;
+        }
+        
         // Update the UI elements with the parsed values
         if (name) {
           gtk_label_set_text(self -> osname, name);
         }
-        if(buildstring){
-          gtk_label_set_text(self -> ossize, buildstring);
+        if(bdate){
+          gtk_label_set_text(self -> ossize, bdate);
         }
 
         if (description) {
