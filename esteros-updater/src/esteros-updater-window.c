@@ -147,7 +147,7 @@ esteros_updater_window_init(EsterosUpdaterWindow * self) {
         int pleasedontmakemekysignorethispls = 0;
 
         for (pleasedontmakemekysignorethispls = 0; pleasedontmakemekysignorethispls < 4; pleasedontmakemekysignorethispls++) {
-            bdate[i] = year[pleasedontmakemekysignorethispls];
+            bdate[pleasedontmakemekysignorethispls] = year[pleasedontmakemekysignorethispls];
         }
         bdate[pleasedontmakemekysignorethispls] = '.';
         pleasedontmakemekysignorethispls++;
