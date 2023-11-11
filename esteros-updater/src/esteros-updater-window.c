@@ -168,9 +168,7 @@ esteros_updater_window_init(EsterosUpdaterWindow * self) {
         if (name) {
           gtk_label_set_text(self -> osname, name);
         }
-        if(bdate){
-          gtk_label_set_text(self -> ossize, bdate);
-        }
+        gtk_label_set_text(self -> ossize, bdate);
 
         if (description) {
           gtk_label_set_text(self -> osdescription, description);
