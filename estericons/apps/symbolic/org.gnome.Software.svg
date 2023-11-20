@@ -1,8 +1,19 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="512" height="512" rx="145" fill="#60EC66"/>
-<path d="M91.2119 239.018C86.0112 217.614 102.224 196.99 124.251 196.99H388.238C410.11 196.99 426.293 217.342 421.364 238.652L388.846 379.239C384.546 397.833 367.985 411 348.901 411H165.231C146.316 411 129.856 398.06 125.39 379.68L91.2119 239.018Z" fill="white"/>
-<rect x="191" y="111" width="130" height="176.197" rx="65" stroke="white" stroke-width="22"/>
-<rect x="187" y="266.57" width="59" height="62.2" rx="9" fill="#FF6A6A"/>
-<path d="M262.67 368.226C257.584 371.135 251.325 366.601 252.306 360.718L260.038 314.345C260.784 309.871 265.465 307.38 269.595 309.258L310.454 327.842C315.71 330.233 316.184 337.622 311.261 340.437L262.67 368.226Z" fill="#72CEFF"/>
-<rect x="265" y="244.43" width="59" height="62.2" rx="29.5" fill="#9A6AFF"/>
+<rect width="512" height="512" rx="130" fill="#00E05E"/>
+<g filter="url(#filter0_i_0_22)">
+<path d="M99.1932 295.648C86.2452 248.095 79.7711 224.318 92.0785 208.212C104.386 192.105 129.028 192.105 178.313 192.105H332.564C382.717 192.105 407.794 192.105 420.093 208.52C432.393 224.935 425.35 249.002 411.264 297.136L391.102 366.031C382.793 394.425 378.638 408.622 367.709 416.811C356.78 425 341.988 425 312.403 425H197.072C166.938 425 151.871 425 140.849 416.578C129.827 408.156 125.869 393.618 117.952 364.543L99.1932 295.648Z" fill="#ACFFCF"/>
+<rect x="179.242" y="100.5" width="153.428" height="201.455" rx="76.7141" stroke="#ACFFCF" stroke-width="25"/>
+</g>
+<defs>
+<filter id="filter0_i_0_22" x="85.5071" y="88" width="357.923" height="342" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="17" dy="5"/>
+<feGaussianBlur stdDeviation="37"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_22"/>
+</filter>
+</defs>
 </svg>

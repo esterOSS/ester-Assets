@@ -1,13 +1,29 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="512" height="512" rx="145" fill="#E1E1E1"/>
-<rect x="132" y="75" width="248" height="361" rx="35" fill="black"/>
-<rect x="231" y="361" width="125" height="51" rx="25.5" fill="#FF8C00"/>
-<rect x="157" y="286" width="50" height="50" rx="25" fill="#D9D9D9"/>
-<rect x="231" y="286" width="51" height="50" rx="25" fill="#D9D9D9"/>
-<rect x="231" y="210" width="51" height="51" rx="25.5" fill="#D9D9D9"/>
-<rect x="157" y="210" width="50" height="51" rx="25" fill="#D9D9D9"/>
-<rect x="158" y="101" width="197" height="85" rx="15" fill="#505050"/>
-<rect x="306" y="210" width="50" height="51" rx="25" fill="#D9D9D9"/>
-<rect x="306" y="286" width="50" height="50" rx="25" fill="#D9D9D9"/>
-<rect x="157" y="361" width="50" height="51" rx="25" fill="#D9D9D9"/>
+<rect width="512" height="512" rx="130" fill="#E1E1E1"/>
+<g filter="url(#filter0_i_0_78)">
+<rect x="271" y="63" width="178" height="385" rx="89" fill="url(#paint0_linear_0_78)"/>
+<rect x="64" y="63" width="178" height="186" rx="52" fill="white"/>
+<rect x="64" y="262" width="178" height="186" rx="52" fill="white"/>
+<rect x="322" y="225" width="77" height="13" rx="6.5" fill="white"/>
+<rect x="115" y="150" width="77" height="13" rx="6.5" fill="black"/>
+<rect x="115" y="349" width="77" height="13" rx="6.5" fill="black"/>
+<rect x="147" y="194" width="77" height="13" rx="6.5" transform="rotate(-90 147 194)" fill="black"/>
+<rect x="322" y="268" width="77" height="13" rx="6.5" fill="white"/>
+</g>
+<defs>
+<filter id="filter0_i_0_78" x="64" y="63" width="390" height="387" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="5" dy="2"/>
+<feGaussianBlur stdDeviation="10.8"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_78"/>
+</filter>
+<linearGradient id="paint0_linear_0_78" x1="360" y1="63" x2="449" y2="347.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EE6A19"/>
+<stop offset="1" stop-color="#FF6100"/>
+</linearGradient>
+</defs>
 </svg>
