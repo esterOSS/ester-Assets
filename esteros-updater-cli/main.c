@@ -80,7 +80,7 @@ int main() {
     printf("Checking for updates...\n\n");
 
     // URL to the information file
-    char infoFileUrl[] = "https://raw.githubusercontent.com/esterOSS/updates/main/latest/info.txt";
+    char infoFileUrl[] = "https://esteros.uk/updates/latest/info.txt";
     
     // Script URL location
     char scriptUrl[256];
