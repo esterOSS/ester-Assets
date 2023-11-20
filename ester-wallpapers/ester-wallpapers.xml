@@ -38,4 +38,24 @@
   <scolor>#000000</scolor>
   <shade_type>solid</shade_type>
 </wallpaper>
+
+<!-- Wallpaper 15 -->
+<wallpaper>
+  <name>15</name>
+  <filename>/usr/share/backgrounds/ester-backgrounds/15.png</filename>
+  <options>zoom</options>
+  <pcolor>#ffffff</pcolor>
+  <scolor>#000000</scolor>
+  <shade_type>solid</shade_type>
+</wallpaper>
+ 
+<!-- Wallpaper 16 -->
+<wallpaper>
+  <name>16</name>
+  <filename>/usr/share/backgrounds/ester-backgrounds/16.png</filename>
+  <options>zoom</options>
+  <pcolor>#ffffff</pcolor>
+  <scolor>#000000</scolor>
+  <shade_type>solid</shade_type>
+</wallpaper>
 </wallpapers>
