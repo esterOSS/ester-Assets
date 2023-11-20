@@ -23,6 +23,7 @@
 #include "esteros-updater-window.h"
 
 #include <gio/gio.h>
+
 #include <string.h>
 
 
@@ -58,13 +59,13 @@ esteros_updater_window_class_init(EsterosUpdaterWindowClass * klass) {
 }
 
 static void esteros_updater_window__install(GtkWidget * widget, gpointer data) {
-  EsterosUpdaterWindow *self = ESTEROS_UPDATER_WINDOW(data);
+  EsterosUpdaterWindow * self = ESTEROS_UPDATER_WINDOW(data);
   gtk_widget_set_sensitive(widget, false);
-  gtk_label_set_text(self -> statustext, "Updating in progress...");
+  gtk_label_set_text(self -> statustext, "Updating in progress.\nFor more information look at the log.");
   gtk_label_set_text(self -> osname, "");
   gtk_label_set_text(self -> ossize, "");
   gtk_label_set_text(self -> osdescription, "");
-  gtk_image_clear(GTK_IMAGE(self->osicon));
+  gtk_image_clear(GTK_IMAGE(self -> osicon));
   // Download command
   char * wgetInfoCommand = "wget -O info.txt https://raw.githubusercontent.com/esterOSS/updates/main/latest/info.txt";
   int status = system(wgetInfoCommand);
@@ -83,18 +84,18 @@ static void esteros_updater_window__install(GtkWidget * widget, gpointer data) {
       if (error == NULL) {
         const char * scriptUrl = g_key_file_get_string(infoKeyFile, "Info", "Script", NULL);
         char wgetScriptCommand[256] = "wget -O update.sh ";
-        strcat(wgetScriptCommand,scriptUrl);
+        strcat(wgetScriptCommand, scriptUrl);
         int updateDlStatus = system(wgetScriptCommand);
         // Run
-        if(updateDlStatus == 0){
+        if (updateDlStatus == 0) {
           system("chmod +x update.sh");
           int updateStatus = system("./update.sh");
-          if(updateStatus == 0){
+          if (updateStatus == 0) {
             gtk_label_set_text(self -> statustext, "Updating complete! Please restart!");
-          }else{
+          } else {
             gtk_label_set_text(self -> statustext, "Updating failed! Please report this to the devs.");
           }
-        }else{
+        } else {
           gtk_label_set_text(self -> statustext, "Downloading failed!");
         }
       } else {
@@ -118,8 +119,6 @@ esteros_updater_window_init(EsterosUpdaterWindow * self) {
   g_signal_connect(self -> mainbutton, "clicked", G_CALLBACK(esteros_updater_window__install), self);
   g_action_map_add_action(G_ACTION_MAP(self), G_ACTION(install_action));
   //const char *infoUrl = "https://raw.githubusercontent.com/esterOSS/updates/main/latest/info.txt";
-  // "An update is available"
-  gtk_label_set_text(self -> statustext, "An update is available!");
   // Download command
   char * wgetInfoCommand = "wget -O info.txt https://raw.githubusercontent.com/esterOSS/updates/main/latest/info.txt";
 
@@ -144,49 +143,69 @@ esteros_updater_window_init(EsterosUpdaterWindow * self) {
         const char * month = g_key_file_get_string(infoKeyFile, "Info", "Month", NULL);
         const char * day = g_key_file_get_string(infoKeyFile, "Info", "Day", NULL);
         char bdate[256] = "\0";
-        int pleasedontmakemekysignorethispls = 0;
+        int datei = 0;
 
-        for (pleasedontmakemekysignorethispls = 0; pleasedontmakemekysignorethispls < 4; pleasedontmakemekysignorethispls++) {
-            bdate[pleasedontmakemekysignorethispls] = year[pleasedontmakemekysignorethispls];
+        for (datei = 0; datei < 4; datei++) {
+          bdate[datei] = year[datei];
         }
-        bdate[pleasedontmakemekysignorethispls] = '.';
-        pleasedontmakemekysignorethispls++;
+        bdate[datei] = '.';
+        datei++;
 
         for (int j = 0; j < 2; j++) {
-            bdate[pleasedontmakemekysignorethispls] = month[j];
-            pleasedontmakemekysignorethispls++;
+          bdate[datei] = month[j];
+          datei++;
         }
-        bdate[pleasedontmakemekysignorethispls] = '.';
-        pleasedontmakemekysignorethispls++;
+        bdate[datei] = '.';
+        datei++;
 
         for (int j = 0; j < 2; j++) {
-            bdate[pleasedontmakemekysignorethispls] = day[j];
-            pleasedontmakemekysignorethispls++;
+          bdate[datei] = day[j];
+          datei++;
         }
-        
-        // Update the UI elements with the parsed values
-        if (name) {
-          gtk_label_set_text(self -> osname, name);
-        }
-        gtk_label_set_text(self -> ossize, bdate);
+        system("cp /etc/version version");
+        GError * versionerror = NULL;
+        gchar * versionContent = NULL;
+        GFile * versionFile = g_file_new_for_path("version");
+        if (g_file_load_contents(versionFile, NULL, & versionContent, NULL, NULL, & versionerror)) {
+          // Parse the version content and update the UI elements
+          GKeyFile * versionKeyFile = g_key_file_new();
+          g_key_file_load_from_data(versionKeyFile, versionContent, -1, G_KEY_FILE_NONE, & versionerror);
+          if (versionerror == NULL) {
+            const char * cyear = g_key_file_get_string(versionKeyFile, "Version", "Year", NULL);
+            const char * cmonth = g_key_file_get_string(versionKeyFile, "Version", "Month", NULL);
+            const char * cday = g_key_file_get_string(versionKeyFile, "Version", "Day", NULL);
+            if (year >= cyear && month >= cmonth && day > cday) {
+              //available
+              gtk_label_set_text(self -> statustext, "An update is available!");
+              // Update the UI elements with the parsed values
+              if (name) {
+                gtk_label_set_text(self -> osname, name);
+              }
+              gtk_label_set_text(self -> ossize, bdate);
 
-        if (description) {
-          gtk_label_set_text(self -> osdescription, description);
-        }
+              if (description) {
+                gtk_label_set_text(self -> osdescription, description);
+              }
 
-        if (iconUrl) {
-            char wgetImageCommand[256] = "wget -O osimage.svg ";
-            strcat(wgetImageCommand, iconUrl);
-            int imgStatus = system(wgetImageCommand);
+              if (iconUrl) {
+                char wgetImageCommand[256] = "wget -O osimage.svg ";
+                strcat(wgetImageCommand, iconUrl);
+                int imgStatus = system(wgetImageCommand);
 
-            if (imgStatus == 0) {
-              // Download was successful, now set the image in GtkImage
-              const char *imageFilePath = "osimage.svg";
-              gtk_image_clear(GTK_IMAGE(self->osicon));
-              gtk_image_set_from_file(GTK_IMAGE(self->osicon), imageFilePath);
+                if (imgStatus == 0) {
+                  // Download was successful, now set the image in GtkImage
+                  const char * imageFilePath = "osimage.svg";
+                  gtk_image_clear(GTK_IMAGE(self -> osicon));
+                  gtk_image_set_from_file(GTK_IMAGE(self -> osicon), imageFilePath);
+                } else {
+                  g_print("Failed to download image: wget exited with non-zero status\n");
+                }
+              }
             } else {
-              g_print("Failed to download image: wget exited with non-zero status\n");
+              //gtk_widget_set_sensitive(self -> mainbutton, false);
+              gtk_label_set_text(self -> statustext, "No updates are available!");
             }
+          }
         }
       } else {
         g_print("Failed to parse info.txt: %s\n", error -> message);
