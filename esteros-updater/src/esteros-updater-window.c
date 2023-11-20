@@ -67,7 +67,7 @@ static void esteros_updater_window__install(GtkWidget * widget, gpointer data) {
   gtk_label_set_text(self -> osdescription, "");
   gtk_image_clear(GTK_IMAGE(self -> osicon));
   // Download command
-  char * wgetInfoCommand = "wget -O info.txt https://raw.githubusercontent.com/esterOSS/updates/main/latest/info.txt";
+  char * wgetInfoCommand = "wget -O info.txt https://esteros.uk/updates/latest/info.txt";
   int status = system(wgetInfoCommand);
 
   if (status == 0) {
@@ -118,9 +118,9 @@ esteros_updater_window_init(EsterosUpdaterWindow * self) {
   g_autoptr(GSimpleAction) install_action = g_simple_action_new("install", NULL);
   g_signal_connect(self -> mainbutton, "clicked", G_CALLBACK(esteros_updater_window__install), self);
   g_action_map_add_action(G_ACTION_MAP(self), G_ACTION(install_action));
-  //const char *infoUrl = "https://raw.githubusercontent.com/esterOSS/updates/main/latest/info.txt";
+  //const char *infoUrl = "https://esteros.uk/updates/latest/info.txt";
   // Download command
-  char * wgetInfoCommand = "wget -O info.txt https://raw.githubusercontent.com/esterOSS/updates/main/latest/info.txt";
+  char * wgetInfoCommand = "wget -O info.txt https://esteros.uk/updates/latest/info.txt";
 
   int status = system(wgetInfoCommand);
 
