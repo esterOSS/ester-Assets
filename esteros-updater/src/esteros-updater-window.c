@@ -1,4 +1,4 @@
-L/* esteros-updater-window.c
+/* esteros-updater-window.c
  *
  * Copyright 2023 JukFiuu
  *
