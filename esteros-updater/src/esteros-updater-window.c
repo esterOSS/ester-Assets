@@ -27,6 +27,7 @@
 #include <string.h>
 
 int stringToInt(const char *str) {
+    // ChatGPT ahh function
     if (str == NULL || *str == '\0') {
         fprintf(stderr, "Error: Invalid or empty string\n");
         return 0;
@@ -60,7 +61,6 @@ int stringToInt(const char *str) {
     // Apply the sign to the result
     return sign * result;
 }
-
 
 struct _EsterosUpdaterWindow {
   AdwApplicationWindow parent_instance;
@@ -206,9 +206,9 @@ esteros_updater_window_init(EsterosUpdaterWindow * self) {
           GKeyFile * versionKeyFile = g_key_file_new();
           g_key_file_load_from_data(versionKeyFile, versionContent, -1, G_KEY_FILE_NONE, & versionerror);
           if (versionerror == NULL) {
-            const char * cyear = g_key_file_get_string(versionKeyFile, "Version", "Year", NULL);
-            const char * cmonth = g_key_file_get_string(versionKeyFile, "Version", "Month", NULL);
-            const char * cday = g_key_file_get_string(versionKeyFile, "Version", "Day", NULL);
+            const char * cyear = g_key_file_get_string(versionKeyFile, "Release", "Year", NULL);
+            const char * cmonth = g_key_file_get_string(versionKeyFile, "Release", "Month", NULL);
+            const char * cday = g_key_file_get_string(versionKeyFile, "Release", "Day", NULL);
             int iyear = stringToInt(year);
             int icyear = stringToInt(cyear);
             int imonth = stringToInt(month);
@@ -218,7 +218,7 @@ esteros_updater_window_init(EsterosUpdaterWindow * self) {
               
             if (iyear >= icyear && imonth >= icmonth && iday > icday) {
               //available
-              gtk_label_set_text(self -> statustext, "An update is available!");
+              gtk_label_set_text(self -> statustext, "Updates are available!");
               // Update the UI elements with the parsed values
               if (name) {
                 gtk_label_set_text(self -> osname, name);
@@ -245,7 +245,7 @@ esteros_updater_window_init(EsterosUpdaterWindow * self) {
               }
             } else {
               //gtk_widget_set_sensitive(self -> mainbutton, false);
-              gtk_label_set_text(self -> statustext, "No updates are available!");
+              gtk_label_set_text(self -> statustext, "You are all set!");
             }
           }
         }
