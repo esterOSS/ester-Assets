@@ -27,22 +27,37 @@
 #include <string.h>
 
 int stringToInt(const char *str) {
-    int result = 0;
-    int sign = 1;
+    if (str == NULL || *str == '\0') {
+        fprintf(stderr, "Error: Invalid or empty string\n");
+        return 0;
+    }
 
+    int result = 0;
+    int sign = 1; // 1 for positive, -1 for negative
+
+    // Check for negative sign
     if (*str == '-') {
         sign = -1;
         str++;
     }
 
+    // Iterate through each character in the string
     while (*str != '\0') {
+        // Check if the character is a digit
         if (*str >= '0' && *str <= '9') {
+            // Update result by multiplying it by 10 and adding the digit
             result = result * 10 + (*str - '0');
         } else {
-            break;
+            // If a non-digit character is encountered, break the loop
+            fprintf(stderr, "Error: Invalid character in the string\n");
+            return 0;
         }
+
+        // Move to the next character in the string
         str++;
     }
+
+    // Apply the sign to the result
     return sign * result;
 }
 
