@@ -26,7 +26,25 @@
 
 #include <string.h>
 
-#include <stdlib.h>
+int stringToInt(const char *str) {
+    int result = 0;
+    int sign = 1;
+
+    if (*str == '-') {
+        sign = -1;
+        str++;
+    }
+
+    while (*str != '\0') {
+        if (*str >= '0' && *str <= '9') {
+            result = result * 10 + (*str - '0');
+        } else {
+            break;
+        }
+        str++;
+    }
+    return sign * result;
+}
 
 
 struct _EsterosUpdaterWindow {
@@ -176,7 +194,7 @@ esteros_updater_window_init(EsterosUpdaterWindow * self) {
             const char * cyear = g_key_file_get_string(versionKeyFile, "Version", "Year", NULL);
             const char * cmonth = g_key_file_get_string(versionKeyFile, "Version", "Month", NULL);
             const char * cday = g_key_file_get_string(versionKeyFile, "Version", "Day", NULL);
-            if (atoi(year) >= atoi(cyear) && atoi(month) >= atoi(cmonth) && atoi(day) > atoi(cday)) {
+            if (stringToInt(year) >= stringToInt(cyear) && stringToInt(month) >= stringToInt(cmonth) && stringToInt(day) > stringToInt(cday)) {
               //available
               gtk_label_set_text(self -> statustext, "An update is available!");
               // Update the UI elements with the parsed values
