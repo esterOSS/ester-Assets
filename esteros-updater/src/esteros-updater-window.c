@@ -26,6 +26,8 @@
 
 #include <string.h>
 
+#include <stdlib.h>
+
 
 struct _EsterosUpdaterWindow {
   AdwApplicationWindow parent_instance;
@@ -174,7 +176,7 @@ esteros_updater_window_init(EsterosUpdaterWindow * self) {
             const char * cyear = g_key_file_get_string(versionKeyFile, "Version", "Year", NULL);
             const char * cmonth = g_key_file_get_string(versionKeyFile, "Version", "Month", NULL);
             const char * cday = g_key_file_get_string(versionKeyFile, "Version", "Day", NULL);
-            if (year >= cyear && month >= cmonth && day > cday) {
+            if (atoi(year) >= atoi(cyear) && atoi(month) >= atoi(cmonth) && atoi(day) > atoi(cday)) {
               //available
               gtk_label_set_text(self -> statustext, "An update is available!");
               // Update the UI elements with the parsed values
