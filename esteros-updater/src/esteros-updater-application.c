@@ -84,7 +84,7 @@ esteros_updater_application_about_action (GSimpleAction *action,
 	                       "application-name", "esterOS Updater",
 	                       "application-icon", "co.uk.esteros.Updater",
 	                       "developer-name", "JukFiuu",
-	                       "version", "1.0.0",
+	                       "version", "1.1.0",
 	                       "developers", developers,
 	                       "copyright", "© 2023 esterOS",
 	                       NULL);
