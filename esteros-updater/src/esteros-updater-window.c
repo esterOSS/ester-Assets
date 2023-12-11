@@ -124,7 +124,7 @@ static void esteros_updater_window__install(GtkWidget * widget, gpointer data) {
         // Run
         if (updateDlStatus == 0) {
           system("chmod +x update.sh");
-          int updateStatus = system("pkexec bash update.sh");
+          int updateStatus = system("pkexec bash ./update.sh");
           if (updateStatus == 0) {
             gtk_label_set_text(self -> statustext, "Updating complete! Please restart!");
           } else {
