@@ -4,8 +4,10 @@
 Prerequisites for building the esterOS GUI updater:\
 To install the neccesary libraries all at once,it is recommended to use the install=lib-arch.sh script to not have to paste each library individually inside of your console.
 
-You can also paste this handy command:\
+You can also paste this handy command:
+```bash
 sudo pacman -Syy gcc appstream-glib pkg-config cmake gtk4 meson
+```
 
 gcc (install it by typing pacman -S gcc)\
 appstream-util (install it by typing pacman -S extra/appstream-glib)\
