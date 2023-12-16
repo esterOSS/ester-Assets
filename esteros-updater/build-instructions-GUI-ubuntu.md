@@ -9,9 +9,9 @@ pkg-config (install it by typing sudo apt install pkg-config)\
 cmake (install it by typing sudo apt install cmake)\
 gtk4 (install it by typing sudo apt install libgtk-4-dev)\
 msfgmt (install it by typing sudo apt install gettext)\
-libadwaita-1 (install it by typing sudo apt install libadwaita-1-dev)\
+libadwaita-1 (install it by typing sudo apt install libadwaita-1-dev)
 
-OR you can paste this handy command:\
+OR you can paste this handy command:
 ```bash
 sudo apt install gcc meson appstream-util pkg-config cmake libgtk-4-dev gettext libadwaita-1-dev
 ```
