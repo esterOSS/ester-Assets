@@ -12,7 +12,9 @@ msfgmt (install it by typing sudo apt install gettext)\
 libadwaita-1 (install it by typing sudo apt install libadwaita-1-dev)\
 
 OR you can paste this handy command:\
-sudo apt install gcc meson appstream-util pkg-config cmake libgtk-4-dev gettext libadwaita-1-dev\
+```bash
+sudo apt install gcc meson appstream-util pkg-config cmake libgtk-4-dev gettext libadwaita-1-dev
+```
 
 1. Download git (sudo apt install git)
 2. Clone repo (git clone https://github.com/ester-sources/assets)
