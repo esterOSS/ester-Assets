@@ -1,15 +1,18 @@
 # Building instructions in Ubuntu 23.10 for the esterOS updater:
 (internet access is required to download libraries and neccesary programs)
 
-Prerequisites for building the esterOS GUI updater:
-gcc (install it by typing sudo apt install gcc)
-meson (install it by typing sudo apt install meson)
-appstream-util (install it by typing sudo apt install appstream-util)
-pkg-config (install it by typing sudo apt install pkg-config)
-cmake (install it by typing sudo apt install cmake)
-gtk4 (install it by typing sudo apt install libgtk-4-dev)
-msfgmt (install it by typing sudo apt install gettext)
-libadwaita-1 (install it by typing sudo apt install libadwaita-1-dev)
+Prerequisites for building the esterOS GUI updater:\
+gcc (install it by typing sudo apt install gcc)\
+meson (install it by typing sudo apt install meson)\
+appstream-util (install it by typing sudo apt install appstream-util)\
+pkg-config (install it by typing sudo apt install pkg-config)\
+cmake (install it by typing sudo apt install cmake)\
+gtk4 (install it by typing sudo apt install libgtk-4-dev)\
+msfgmt (install it by typing sudo apt install gettext)\
+libadwaita-1 (install it by typing sudo apt install libadwaita-1-dev)\
+
+OR you can paste this handy command:\
+sudo apt install gcc meson appstream-util pkg-config cmake libgtk-4-dev gettext libadwaita-1-dev\
 
 1. Download git (sudo apt install git)
 2. Clone repo (git clone https://github.com/ester-sources/assets)
