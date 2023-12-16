@@ -2,6 +2,8 @@
 (internet access is required to download libraries and neccesary programs)
 
 Prerequisites for building the esterOS GUI updater:
+To install the neccesary libraries all at once,it is recommended to use the install=lib-arch.sh script to not have to paste each library individually inside of your console.
+
 gcc (install it by typing pacman -S gcc)
 appstream-util (install it by typing pacman -S extra/appstream-glib)
 pkg-config (install it by typing pacman -S pkg-config)
