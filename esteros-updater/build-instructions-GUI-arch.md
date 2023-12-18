@@ -8,7 +8,7 @@ appstream-util (install it by typing pacman -S extra/appstream-glib)\
 pkg-config (install it by typing pacman -S pkg-config)\
 cmake (install it by typing pacman -S cmake)\
 gtk4 (install it by typing pacman -S gtk4)\
-meson (install it by typing pacman -S meson)\
+meson (install it by typing pacman -S meson)
 
 To install the neccesary libraries all at once, it is recommended to use the install-lib-arch.sh script to not have to paste each library individually inside of your console or you can also paste this handy command:
 ```bash
