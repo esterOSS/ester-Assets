@@ -1,5 +1,5 @@
 # Building instructions in Ubuntu 23.10 for the esterOS updater:
-(internet access is required to download libraries and neccesary programs)
+(internet access is required to download libraries and neccesary programs:
 
 Prerequisites for building the esterOS GUI updater:\
 gcc (install it by typing sudo apt install gcc)\
@@ -11,7 +11,7 @@ gtk4 (install it by typing sudo apt install libgtk-4-dev)\
 msfgmt (install it by typing sudo apt install gettext)\
 libadwaita-1 (install it by typing sudo apt install libadwaita-1-dev)
 
-OR you can paste this handy command:
+To install the neccesary libraries all at once, paste this handy command:
 ```bash
 sudo apt install gcc meson appstream-util pkg-config cmake libgtk-4-dev gettext libadwaita-1-dev
 ```
