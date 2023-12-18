@@ -11,7 +11,7 @@ Cuz people keep forgetting :skull::
 	 - Has a custom boot animation
 	 - Has a custom font
 	 - Has custom wallpapers
-	 - ***WILL*** have custom apps
+	 - ***DOES*** have custom apps
  - It is indeed real. (Atleast on the PC version  `¯\_(ツ)_/¯`)
 
 > [!WARNING]
