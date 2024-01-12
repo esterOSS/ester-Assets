@@ -19,5 +19,7 @@ Cuz people keep forgetting :skull::
 > - "Mouse Rage"
 > - "Keyboard Frustration"
 > - "Auto-Correct Embarrassment."
+> - "Out of date packages forcing you to download gigabytes to update it"
 > - "Ctrl+Alt+Del Syndrome" – a condition where you start believing that restarting yourself will solve all of life's problems.
 > - "i use arch btw"
+> - "this OS is just pure Arch with a custom GNOME extensions and bloat"
