@@ -6,7 +6,7 @@ Well, technically yes, but actually no!\
 Cuz people keep forgetting :skull::
 
  - This is an Arch distro
- - It uses Gnome<sup>visually appealing edition</sup>
+ - It uses Gnome<sup>visually appealing edition (not really, just some extensions added into GNOME)</sup>
 	 - Has a custom made icon pack
 	 - Has a custom boot animation
 	 - Has a custom font
